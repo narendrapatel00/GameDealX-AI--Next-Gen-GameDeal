@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+
+@layer base {
+  body {
+    @apply bg-cyber-darker text-gray-100 font-sans transition-colors duration-300;
+    background-image: radial-gradient(circle at 50% 0%, rgba(26, 16, 48, 0.4) 0%, transparent 70%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron tracking-wide;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #010103;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b1b2f;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(10, 10, 20, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(157, 78, 221, 0.15);
+}
+
+.cyber-border-blue {
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.05);
+}
+
+.cyber-border-pink {
+  border: 1px solid rgba(255, 0, 127, 0.3);
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.05);
+}
+
+/* Scanline Effect */
+.scanline::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 240, 255, 0.04) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
+  z-index: 10;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Glowing text */
+.text-glow-blue {
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+.text-glow-pink {
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);
+}
+
+/* Scanner sweep animation */
+@keyframes cyber-scanner {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.scanner-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00f0ff, transparent);
+  animation: cyber-scanner 6s linear infinite;
+  opacity: 0.7;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse Glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Skeleton Loading Shine */
+@keyframes skeleton-shine {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #12121a 25%, #1c1c28 50%, #12121a 75%);
+  background-size: 200px 100%;
+  animation: skeleton-shine 1.5s infinite linear;
+}
+
+.skeleton-light {
+  background: linear-gradient(90deg, #e5e5ec 25%, #f5f5fc 50%, #e5e5ec 75%);
+  background-size: 200px 100%;
+  animation: skeleton-shine 1.5s infinite linear;
+}
