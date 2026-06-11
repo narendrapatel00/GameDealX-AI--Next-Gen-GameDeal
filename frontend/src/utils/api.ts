@@ -1,7 +1,7 @@
 import type { GamesResponse, Game, AnalyticsData, ScraperStatus, QueryFilters } from '../types';
 
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api';
 
 // Cache helper to store API responses in memory for performance-first loading
 const cache = new Map<string, { data: any; expiry: number }>();

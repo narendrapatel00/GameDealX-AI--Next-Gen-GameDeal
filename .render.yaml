@@ -15,10 +15,4 @@ services:
     # Render auto‑maps the container's EXPOSE to the service URL
 
   # Frontend service – static site built with Vite
-  - type: web
-    name: gamedealx-frontend
-    env: static
-    buildCommand: npm ci && npm run build
-    publishPath: dist
-    plan: free
-    # CORS is already allowed in the Flask app, so the frontend can call the backend URL
+
